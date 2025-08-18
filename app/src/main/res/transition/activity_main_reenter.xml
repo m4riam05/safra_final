@@ -8,11 +8,11 @@
             <target android:targetId="@id/container" />
         </targets>
         <transition
-            class="com.android.sheguard.ui.core.PopTransition"
+            class="com.safra.app.ui.core.PopTransition"
             app:endScale="1.0"
             app:startScale="0.95" />
         <transition
-            class="com.android.sheguard.ui.core.FadeTransition"
+            class="com.safra.app.ui.core.FadeTransition"
             app:endAlpha="1.0"
             app:startAlpha="0.3" />
     </transitionSet>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.android.sheguard.ui.fragment.LoginFragment"
+        android:name="com.safra.app.ui.fragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.android.sheguard.ui.fragment.RegisterFragment"
+        android:name="com.safra.app.ui.fragment.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
 </navigation>
