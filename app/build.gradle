@@ -50,6 +50,9 @@ dependencies {
     implementation libs.androidx.viewpager2
     implementation libs.collapsingtoolbarlayout.subtitle
 
+    //porcupine
+    implementation 'ai.picovoice:porcupine-android:3.0.2'
+
     // Kotlin
     implementation(platform(libs.kotlin.bom))
 
