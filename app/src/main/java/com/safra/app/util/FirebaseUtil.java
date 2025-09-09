@@ -5,7 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.safra.app.SheGuard;
+import com.safra.app.Safra;
 import com.safra.app.api.MyFirebaseAuth;
 import com.safra.app.api.NotificationAPI;
 import com.safra.app.common.Constants;
@@ -64,7 +64,7 @@ public class FirebaseUtil {
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                return MyFirebaseAuth.getAccessToken(SheGuard.getAppContext());
+                return MyFirebaseAuth.getAccessToken(Safra.getAppContext());
             } catch (IOException e) {
                 Log.e("SendNotificationTask", "Error getting access token: ", e);
                 return null;

@@ -7,7 +7,7 @@ import android.content.Context;
 import com.google.android.material.color.DynamicColors;
 import com.google.gson.Gson;
 
-public class SheGuard extends Application {
+public class Safra extends Application {
 
     public static final Gson GSON = new Gson();
     @SuppressLint("StaticFieldLeak")

@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.safra.app.R;
-import com.safra.app.SheGuard;
+import com.safra.app.Safra;
 import com.safra.app.common.Constants;
 import com.safra.app.config.Prefs;
 import com.safra.app.model.ContactModel;
@@ -71,7 +71,7 @@ public class NewContactAdapter extends RecyclerView.Adapter<NewContactAdapter.Vi
             ContactsFragment.contacts.add(new ContactModel(name, number));
             ContactsFragment.adapter.notifyDataSetChanged();
 
-            Gson gson = SheGuard.GSON;
+            Gson gson = Safra.GSON;
             String jsonContacts = gson.toJson(ContactsFragment.contacts);
             Prefs.putString(Constants.CONTACTS_LIST, jsonContacts);
 

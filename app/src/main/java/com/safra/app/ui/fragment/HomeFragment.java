@@ -124,7 +124,7 @@ public class HomeFragment extends Fragment {
             NavOptions navOptions = new NavOptions.Builder()
                     .setEnterAnim(0)
                     .setExitAnim(0)
-                    .setPopEnterAnim(R.anim.slide_out)
+                    .setPopEnterAnim(R.anim.slide_up)
                     .setPopExitAnim(R.anim.fade_in)
                     .build();
 

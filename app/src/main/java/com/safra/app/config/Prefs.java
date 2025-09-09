@@ -4,12 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.safra.app.BuildConfig;
-import com.safra.app.SheGuard;
+import com.safra.app.Safra;
 
 @SuppressWarnings("unused")
 public class Prefs {
 
-    public static SharedPreferences prefs = SheGuard.getAppContext().getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE);
+    public static SharedPreferences prefs = Safra.getAppContext().getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE);
     static SharedPreferences.Editor editor = prefs.edit();
 
     public static void putBoolean(String key, boolean val) {

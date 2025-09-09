@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null || !firebaseAuth.getCurrentUser().isEmailVerified()) {
-            startActivity(new Intent(MainActivity.this, OnBoardingActivity.class));
+            startActivity(new Intent(MainActivity.this, SplashActivity.class));
             finishAffinity();
         }
     }

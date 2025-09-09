@@ -15,7 +15,7 @@
             app:destination="@id/registerFragment"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_up"
             app:popExitAnim="@anim/fade_in" />
     </fragment>
     <fragment

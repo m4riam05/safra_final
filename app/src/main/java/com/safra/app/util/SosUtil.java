@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.safra.app.R;
-import com.safra.app.SheGuard;
+import com.safra.app.Safra;
 import com.safra.app.api.NotificationAPI;
 import com.safra.app.common.Constants;
 import com.safra.app.config.Prefs;
@@ -142,7 +142,7 @@ public class SosUtil {
         resetValues();
 
         ArrayList<ContactModel> contacts = new ArrayList<>();
-        Gson gson = SheGuard.GSON;
+        Gson gson = Safra.GSON;
         String jsonContacts = Prefs.getString(Constants.CONTACTS_LIST, "");
 
         if (Prefs.getBoolean(Constants.SETTINGS_CALL_EMERGENCY_SERVICE, false) && !calledEmergency) {

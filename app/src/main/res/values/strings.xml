@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Safra</string>
-    <string name="app_moto">Your safety in your hands</string>
+    <string name="app_moto">Because Your Safety Matters</string>
 
     <string name="onboarding_slide1_title">Welcome to Safra</string>
     <string name="onboarding_slide1_subtitle">Your personal guardian app for women\'s safety</string>
