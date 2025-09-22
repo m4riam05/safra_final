@@ -30,8 +30,8 @@ public class WakeWordService extends Service {
 
         try {
             porcupineManager = new PorcupineManager.Builder()
-                    .setAccessKey("tZuE/VdmUYTDyPlKuB2fPjZqfWBqzsh/XwN64NNu9/gS/nv/5CzqvQ==") // 👈 Replace with your real AccessKey
-                    .setKeywordPath("safra-help_en_android_v3_0_0.ppn") // 👈 your assets file
+                    .setAccessKey("tZuE/VdmUYTDyPlKuB2fPjZqfWBqzsh/XwN64NNu9/gS/nv/5CzqvQ==")
+                    .setKeywordPath("safra-help_en_android_v3_0_0.ppn")
                     .setSensitivity(0.7f)
                     .build(getApplicationContext(), (keywordIndex) -> {
                         try {

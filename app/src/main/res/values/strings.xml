@@ -200,4 +200,6 @@
 
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+
+    <string name="signal_loss_message">Hi %1$s, I\'ve lost my phone signal. My last known location was here: %2$s</string>
 </resources>

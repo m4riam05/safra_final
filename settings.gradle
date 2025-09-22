@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SheGuard"
+rootProject.name = "Safra"
 include ':app'
