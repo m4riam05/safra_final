@@ -202,4 +202,8 @@
     <string name="nav_close">Close</string>
 
     <string name="signal_loss_message">Hi %1$s, I\'ve lost my phone signal. My last known location was here: %2$s</string>
+    <string name="safe_check_in_message">Hi %1$s, this is a safe check-in from %2$s. I wanted to let you know that I am safe.</string>
+    <string name="activity_safe_checkin_title">Safe Check-in</string>
+    <string name="activity_safe_checkin_desc">Send an "I\'m safe" message</string>
+
 </resources>

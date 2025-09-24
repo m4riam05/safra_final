@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Looper;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,7 +65,6 @@ public class SosUtil {
     private static final String TAG = "SOS_DEBUG";
     private static final String SENT_SMS_ACTION = "com.safra.app.SMS_SENT";
     private static final String DELIVERED_SMS_ACTION = "com.safra.app.SMS_DELIVERED";
-    // ✅ Use an AtomicInteger to generate a unique request code for each PendingIntent
     private static final AtomicInteger requestCodeGenerator = new AtomicInteger(0);
 
     static {
@@ -79,6 +79,40 @@ public class SosUtil {
             notificationApiService = NotificationClient.getClient("https://fcm.googleapis.com/").create(NotificationAPI.class);
         }
     }
+
+    // ✅ This is the new method for the Safe Check-in button
+    public static void sendSafeCheckInMessage(Context context) {
+        Log.d(TAG, "--- Starting Safe Check-in Process ---");
+
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "SMS permission is required for this feature.", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Safe Check-in failed: SEND_SMS permission not granted.");
+            return;
+        }
+
+        ArrayList<ContactModel> contacts = getTrustedContacts();
+        if (contacts.isEmpty()) {
+            Toast.makeText(context, "You haven't added any trusted contacts yet.", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Safe Check-in failed: No trusted contacts found.");
+            return;
+        }
+
+        String userName = Prefs.getString(Constants.PREFS_USER_NAME, "a friend");
+        String messageTemplate = context.getString(R.string.safe_check_in_message);
+
+        int contactsSent = 0;
+        for (ContactModel contact : contacts) {
+            String message = String.format(messageTemplate, contact.getName(), userName);
+            sendSmsWithPendingIntent(context, contact.getPhone(), message);
+            contactsSent++;
+        }
+
+        if (contactsSent > 0) {
+            Toast.makeText(context, "Sending safe check-in to " + contactsSent + " contact(s).", Toast.LENGTH_SHORT).show();
+            Log.i(TAG, "Queued safe check-in for " + contactsSent + " contact(s).");
+        }
+    }
+
 
     public static void sendSignalLossMessage(Context context, Location location) {
         Log.i(TAG, "--- Starting Signal Loss SMS Process ---");
@@ -105,7 +139,6 @@ public class SosUtil {
             return;
         }
         try {
-            // ✅ Generate a unique request code for this specific SMS
             int requestCode = requestCodeGenerator.incrementAndGet();
 
             Intent sentIntent = new Intent(SENT_SMS_ACTION);

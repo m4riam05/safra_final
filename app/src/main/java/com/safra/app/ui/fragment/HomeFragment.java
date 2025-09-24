@@ -10,6 +10,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -72,6 +73,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
         MainActivity.shakeDetection.setValue(Prefs.getBoolean(Constants.SETTINGS_SHAKE_DETECTION, false));
         MainActivity.shakeDetection.setOnChangeListener(newValue -> {
             binding.btnShakeDetection.setVisibility(newValue ? View.VISIBLE : View.GONE);
@@ -102,6 +104,10 @@ public class HomeFragment extends Fragment {
             updateButtonText();
         });
 
+        // ✅ This is the click listener for your new Safe Check-in button in the grid
+        binding.safeCheckin.setOnClickListener(v -> SosUtil.sendSafeCheckInMessage(requireContext()));
+
+        // Listeners for the other grid buttons
         binding.contacts.setOnClickListener(v -> Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_contactsFragment));
         binding.helpline.setOnClickListener(v -> Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_helplineFragment));
         binding.safetyTips.setOnClickListener(v -> Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_safetyTipsFragment));
@@ -196,3 +202,4 @@ public class HomeFragment extends Fragment {
         }
     });
 }
+
